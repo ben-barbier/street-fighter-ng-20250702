@@ -1,0 +1,30 @@
+@use '@angular/material' as mat;
+
+.card {
+  min-width: 200px;
+
+  .card-header {
+    height: 84px;
+
+    .header-image {
+      background-size: cover;
+    }
+  }
+
+  .character-name {
+    max-width: min-content;
+  }
+
+  .mat-mdc-card-actions {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+.is-in-arena {
+  @include mat.theme(
+    (
+      color: mat.$red-palette,
+    )
+  );
+}

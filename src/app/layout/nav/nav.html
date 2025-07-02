@@ -8,9 +8,10 @@
     [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item routerLink="">Characters</a>
+      <a mat-list-item routerLink="arena">Arena</a>
+      <a mat-list-item routerLink="ranking">Ranking</a>
+      <a mat-list-item routerLink="character">Character</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,7 +21,12 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       }
-      <span>street-fighter-ng</span>
+      <span>Street Fighter Ng</span>
+      <span class="spacer"></span>
+      <span>
+        <mat-icon class="arena-icon">sports_mma</mat-icon>
+        No fighters in arena
+      </span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content></ng-content>

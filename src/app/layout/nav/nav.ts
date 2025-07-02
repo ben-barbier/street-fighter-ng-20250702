@@ -10,6 +10,7 @@ import {
   MatSidenavContent,
 } from '@angular/material/sidenav';
 import { MatToolbar } from '@angular/material/toolbar';
+import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
@@ -27,6 +28,7 @@ import { map, shareReplay } from 'rxjs/operators';
     MatIconButton,
     MatIcon,
     MatSidenavContainer,
+    RouterLink,
   ],
 })
 export class Nav {

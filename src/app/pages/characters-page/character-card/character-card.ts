@@ -1,4 +1,10 @@
-import { Component, ChangeDetectionStrategy, computed, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+} from '@angular/core';
+import { MatMiniFabButton } from '@angular/material/button';
 import {
   MatCard,
   MatCardActions,
@@ -11,10 +17,9 @@ import {
 } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLinkWithHref } from '@angular/router';
-import { CharactersService } from '../../../shared/services/characters-service';
-import { MatMiniFabButton } from '@angular/material/button';
-import { CharacterDto } from '../../../shared/services/character-dto';
-import { ArenaStore } from '../../../shared/stores/arena-store';
+
+import { environment } from '../../../../environments/environment';
+import { CharacterDto } from '../../../shared/api/characters/character.dto';
 
 @Component({
   selector: 'app-character-card',
@@ -37,14 +42,18 @@ import { ArenaStore } from '../../../shared/stores/arena-store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterCard {
-  readonly #charactersService = inject(CharactersService);
-  readonly #arenaStore = inject(ArenaStore);
   readonly character = input.required<CharacterDto>();
 
-  protected pictureUrl = computed(() => this.#charactersService.getPictureUrl(this.character()));
-  protected isInArena = computed(() => this.#arenaStore.isInArena(this.character()));
+  protected pictureUrl = computed(
+    () =>
+      `${environment.apiUrl}/assets/characters/${this.character().id}_thumbnail.png`,
+  );
 
   public toggleToArena(): void {
-    this.#arenaStore.toggleToArena(this.character());
+    //TODO
+  }
+
+  public isInArena() {
+    // TODO
   }
 }

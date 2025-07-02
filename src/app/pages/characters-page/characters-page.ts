@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 
-import { CharacterDto } from '../../shared/api/characters/character.dto';
+import { CharacterDto } from '../../shared/api/characters/character-dto';
 import { CharactersApi } from '../../shared/api/characters/characters-api';
 import { CharacterCard } from './character-card/character-card';
 

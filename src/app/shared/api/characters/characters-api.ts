@@ -3,7 +3,9 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
-import { CharacterDto } from './character.dto';
+import { CharacterDto } from './character-dto';
+import { CreateCharacterDto } from './create-character-dto';
+import { UpdateCharacterDto } from './update-character-dto';
 
 @Injectable({ providedIn: 'root' })
 export class CharactersApi {
@@ -16,6 +18,24 @@ export class CharactersApi {
   public get(id: string): Observable<CharacterDto> {
     return this.#http.get<CharacterDto>(
       `${environment.apiUrl}/characters/${id}`,
+    );
+  }
+
+  public add(character: CreateCharacterDto): Observable<CharacterDto> {
+    return this.#http.post<CharacterDto>(
+      `${environment.apiUrl}/characters`,
+      character,
+    );
+  }
+
+  public remove(id: string): Observable<void> {
+    return this.#http.delete<void>(`${environment.apiUrl}/characters/${id}`);
+  }
+
+  public update(character: UpdateCharacterDto): Observable<CharacterDto> {
+    return this.#http.patch<CharacterDto>(
+      `${environment.apiUrl}/characters/${character.id}`,
+      character,
     );
   }
 }

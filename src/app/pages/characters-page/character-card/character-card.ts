@@ -19,7 +19,7 @@ import { MatIcon } from '@angular/material/icon';
 import { RouterLinkWithHref } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
-import { CharacterDto } from '../../../shared/api/characters/character.dto';
+import { CharacterDto } from '../../../shared/api/characters/character-dto';
 
 @Component({
   selector: 'app-character-card',

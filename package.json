@@ -8,18 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "prettier:write": "prettier --config .prettierrc.json --write .",
-    "prettier:check": "prettier --config .prettierrc.json --check ."
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
+    "format": "ng lint --fix"
   },
   "private": true,
   "dependencies": {

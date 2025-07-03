@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-arena-page',
   imports: [],
   templateUrl: './arena-page.html',
-  styleUrl: './arena-page.scss'
+  styleUrl: './arena-page.scss',
 })
-export class ArenaPage {
-
-}
+export default class ArenaPage {}

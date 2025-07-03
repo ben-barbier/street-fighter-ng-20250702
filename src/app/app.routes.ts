@@ -1,13 +1,25 @@
 import { Routes } from '@angular/router';
 
-import { ArenaPage } from './pages/arena-page/arena-page';
-import { CharacterPage } from './pages/character-page/character-page';
-import { CharactersPage } from './pages/characters-page/characters-page';
-import { RankingPage } from './pages/ranking-page/ranking-page';
+import { hasTwoCharactersInArenaGuardGuard } from './pages/arena-page/has-two-characters-in-arena-guard-guard';
 
 export const routes: Routes = [
-  { path: '', component: CharactersPage },
-  { path: 'arena', component: ArenaPage },
-  { path: 'ranking', component: RankingPage },
-  { path: 'character', component: CharacterPage },
+  {
+    path: '',
+    loadComponent: () => import('./pages/characters-page/characters-page'),
+  },
+  {
+    path: 'arena',
+    loadComponent: () => import('./pages/arena-page/arena-page'),
+    canActivate: [hasTwoCharactersInArenaGuardGuard],
+  },
+  {
+    path: 'ranking',
+    loadComponent: () => import('./pages/ranking-page/ranking-page'),
+  },
+  {
+    path: 'character/:id',
+    loadComponent: () => import('./pages/character-page/character-page'),
+  },
+  { path: 'character', redirectTo: '/character/ryu' },
+  { path: '**', redirectTo: '' },
 ];

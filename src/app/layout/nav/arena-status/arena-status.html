@@ -1,0 +1,14 @@
+<span>
+  <mat-icon class="arena-icon">sports_mma</mat-icon>
+  @if (arenaCharacters().length === 0) {
+    No fighters in arena
+  } @else if (arenaCharacters().length === 1) {
+    {{ arenaCharacters()[0]?.name }} is alone in the arena
+  } @else if (arenaCharacters().length >= 2) {
+    <a routerLink="arena" class="arena-link">
+      {{ arenaCharacters()[0]?.name }}
+      <img alt="vs" class="vs" src="/vs.png" />
+      {{ arenaCharacters()[1]?.name }}
+    </a>
+  }
+</span>

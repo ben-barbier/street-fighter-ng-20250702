@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { MatMiniFabButton } from '@angular/material/button';
 import {
   MatCard,
@@ -20,6 +15,7 @@ import { RouterLinkWithHref } from '@angular/router';
 
 import { environment } from '../../../../environments/environment';
 import { CharacterDto } from '../../../shared/api/characters/character-dto';
+import { ArenaStore } from '../../../shared/store/arena-store';
 
 @Component({
   selector: 'app-character-card',
@@ -44,13 +40,12 @@ import { CharacterDto } from '../../../shared/api/characters/character-dto';
 export class CharacterCard {
   readonly character = input.required<CharacterDto>();
 
-  protected pictureUrl = computed(
-    () =>
-      `${environment.apiUrl}/assets/characters/${this.character().id}_thumbnail.png`,
-  );
+  #arenaStore = inject(ArenaStore);
+
+  protected pictureUrl = computed(() => `${environment.apiUrl}/assets/characters/${this.character().id}_thumbnail.png`);
 
   public toggleToArena(): void {
-    //TODO
+    this.#arenaStore.addCharacter(this.character());
   }
 
   public isInArena() {

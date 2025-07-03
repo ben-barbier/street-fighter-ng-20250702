@@ -10,7 +10,7 @@ import { CharacterCard } from './character-card/character-card';
   templateUrl: './characters-page.html',
   styleUrl: './characters-page.scss',
 })
-export class CharactersPage implements OnInit {
+export default class CharactersPage implements OnInit {
   #charactersApi = inject(CharactersApi);
 
   protected characters = signal<CharacterDto[]>([]);

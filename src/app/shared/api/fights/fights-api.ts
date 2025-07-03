@@ -11,10 +11,7 @@ import { FightDto } from './fight-dto';
 export class FightsApi {
   #http = inject(HttpClient);
 
-  public fight(
-    characterOneId: string,
-    characterTwoId: string,
-  ): Observable<FightDto> {
+  public fight(characterOneId: string, characterTwoId: string): Observable<FightDto> {
     return this.#http.post<FightDto>(`${environment.apiUrl}/fights`, {
       characterOne: characterOneId,
       characterTwo: characterTwoId,

@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-ranking-page',
   imports: [],
   templateUrl: './ranking-page.html',
-  styleUrl: './ranking-page.scss'
+  styleUrl: './ranking-page.scss',
 })
-export class RankingPage {
-
-}
+export default class RankingPage {}

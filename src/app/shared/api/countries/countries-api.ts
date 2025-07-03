@@ -14,4 +14,8 @@ export class CountriesApi {
   public getAll(): Observable<CountryDto[]> {
     return this.#http.get<CountryDto[]>(`${environment.apiUrl}/countries`);
   }
+
+  public get(id: string): Observable<CountryDto> {
+    return this.#http.get<CountryDto>(`${environment.apiUrl}/countries/${id}`);
+  }
 }

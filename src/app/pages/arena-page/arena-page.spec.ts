@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArenaPage } from './arena-page';
+import ArenaPage from './arena-page';
 
 describe('ArenaPage', () => {
   let component: ArenaPage;

@@ -13,8 +13,8 @@ export class FightsApi {
 
   public fight(characterOneId: string, characterTwoId: string): Observable<FightDto> {
     return this.#http.post<FightDto>(`${environment.apiUrl}/fights`, {
-      characterOne: characterOneId,
-      characterTwo: characterTwoId,
+      characterOneId,
+      characterTwoId,
     });
   }
 

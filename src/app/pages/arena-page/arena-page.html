@@ -1,1 +1,13 @@
-<p>arena-page works!</p>
+<h1> Arena </h1>
+
+<div>
+{{ characters()[0]?.name }} Vs {{ characters()[1]?.name }}
+</div>
+
+<button matIconButton (click)="fight()"><mat-icon>sports_mma</mat-icon>Fights</button>
+
+@if(winner(); as w) {
+  <div>
+    {{ w.name }}
+  </div>
+}

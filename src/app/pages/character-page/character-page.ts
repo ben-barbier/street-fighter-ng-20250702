@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
@@ -16,6 +16,7 @@ import { CharactersApi } from '../../shared/api/characters/characters-api';
 export default class CharacterPage implements OnInit {
   route = inject(ActivatedRoute);
   charactersApi = inject(CharactersApi);
+  id = input.required<string>();
 
   character = signal<CharacterDto | null>(null);
 

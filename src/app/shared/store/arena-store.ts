@@ -1,4 +1,5 @@
 import { Injectable, signal } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { CharacterDto } from '../api/characters/character-dto';
 
@@ -6,6 +7,8 @@ import { CharacterDto } from '../api/characters/character-dto';
 export class ArenaStore {
   readonly #arenaCharacters = signal<(CharacterDto | null)[]>([]);
   readonly arenaCharacters = this.#arenaCharacters.asReadonly();
+
+  public leak$ = new BehaviorSubject<number>(0);
 
   addCharacter(character: CharacterDto): void {
     const arena = this.#arenaCharacters();

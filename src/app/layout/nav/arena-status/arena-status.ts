@@ -14,4 +14,8 @@ export class ArenaStatus {
   #arenaStore = inject(ArenaStore);
 
   arenaCharacters = this.#arenaStore.arenaCharacters;
+
+  incrementLeak() {
+    this.#arenaStore.leak$.next(this.#arenaStore.leak$.getValue() + 1);
+  }
 }

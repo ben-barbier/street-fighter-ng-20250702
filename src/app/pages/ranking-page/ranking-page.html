@@ -1,1 +1,8 @@
 <p>ranking-page works!</p>
+<ul>
+  @for (character of rank(); track character.id) {
+    <li>
+      {{ character.name }} - {{ character.score }}
+    </li>
+  }
+</ul>

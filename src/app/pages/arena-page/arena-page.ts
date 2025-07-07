@@ -31,7 +31,7 @@ export default class ArenaPage {
 
   constructor() {
     this.startFight$
-      .pipe(exhaustMap(fight => this.fightApi.fight(fight.characterOneId, fight.characterOneId)))
+      .pipe(exhaustMap(fight => this.fightApi.fight(fight.characterOneId, fight.characterTwoId)))
       .subscribe(result => this.winnerId.set(result.winnerId));
   }
 }
